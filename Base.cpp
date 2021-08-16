@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
+/*
+    Enunciado
+*/
+int main() {
 
-int main(){
- 
-
- 
- 
- return 0;
+    return 0;
 }
