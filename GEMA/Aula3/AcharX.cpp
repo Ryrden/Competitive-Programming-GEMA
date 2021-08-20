@@ -17,22 +17,24 @@ Output
 */
 typedef long long ll;
 
-int BuscaBinaria(int n, ll v[100005], ll x) {
+int Encontra_Minimo(int n, ll v[100005], ll x) {
     ll first = 0;
     ll last = n - 1;
-    ll query = 10000000000;
     ll ans, mid;
 
-    if (x == 0) {
-        return v[0];
-    }
+    ll query;
+    ll minimo = 100000000000;
 
     while (first <= last) {
         mid = (first + last) / 2;
 
-        if ((abs(x - v[mid])) <= query && v[mid] < x) {
+        query = abs(v[mid] - x);
+
+        if (query < minimo) {
+            minimo = query;
             ans = v[mid];
-            query = abs(x - v[mid]);
+        } else if (query == minimo && v[mid] < ans) {
+            ans = v[mid];
         }
         if (v[mid] > x) {
             last = mid - 1;
@@ -61,7 +63,7 @@ int main() {
     }
 
     for (int k = 0; k < m; k++) {
-        cout << BuscaBinaria(n, v, x[k]) << '\n';
+        cout << Encontra_Minimo(n, v, x[k]) << '\n';
     }
 
     return 0;
